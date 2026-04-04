@@ -9,7 +9,6 @@ checkpoints/
 *.tar
 
 # 训练日志与输出
-training.log
 training.log.*.bak
 nohup.out
 tensorboard.out
