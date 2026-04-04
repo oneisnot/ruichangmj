@@ -1,0 +1,29 @@
+# 模型权重与大文件
+checkpoints/
+*.pth
+*.pth.*
+
+# 数据集与缓存（大文件）
+*.npz
+*.pkl
+*.tar
+
+# 训练日志与输出
+training.log
+training.log.*.bak
+nohup.out
+tensorboard.out
+
+# TensorBoard runs
+runs/
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 虚拟环境
+.venv/
+
+# 服务器私有信息
+v100主机信息.md
