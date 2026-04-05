@@ -1,0 +1,24 @@
+[14:08:31] 🚀 CUDA GPU: Tesla V100-SXM2-32GB
+[14:08:31] Inference Server running on: cuda:0
+[14:08:46] Worker 0 started.
+[14:08:46] Worker 1 started.
+[14:08:47] Worker 2 started.
+[14:08:47] Worker 3 started.
+[14:08:48] Worker 4 started.
+[14:08:48] Worker 5 started.
+[14:08:49] Worker 6 started.
+[14:08:49] Worker 7 started.
+[14:08:50] Worker 8 started.
+[14:08:50] Worker 9 started.
+[14:08:51] Worker 10 started.
+[14:08:52] Worker 11 started.
+[14:08:52] Worker 12 started.
+[14:08:53] Worker 13 started.
+[14:08:53] Worker 14 started.
+[14:08:54] Worker 15 started.
+[14:08:54] 🚀 CUDA GPU: Tesla V100-SXM2-32GB
+[14:08:54] Trainer running on: cuda:0
+[14:08:55] Trainer: Performing Network Surgery from /home/cnhbs/ruichang_mj/checkpoints/best_policy.pth...
+[14:08:55] [Surgery] Grafting layer: input_conv.0.weight torch.Size([256, 14, 3]) -> torch.Size([256, 16, 3])
+[14:08:55] ✅ SL 模型手术衔接完成。
+[14:08:55] PPO Conditioned Training (Domain Randomization) Start.

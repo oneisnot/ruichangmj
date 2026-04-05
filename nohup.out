@@ -1,0 +1,235 @@
+[14:34:46] 加载向听数离线查表 (DP Lookup)...
+[14:34:48] 加载向听数离线查表 (DP Lookup)...
+[14:34:48] 🚀 CUDA GPU: Tesla V100-SXM2-32GB
+[14:34:48] Inference Server running on: cuda:0
+[14:34:49] Inference Server: 等待 Trainer 注入已完成手术的初始权重...
+[14:35:03] 加载向听数离线查表 (DP Lookup)...
+[14:35:04] Worker 0 started.
+[14:35:04] 加载向听数离线查表 (DP Lookup)...
+[14:35:04] Worker 1 started.
+[14:35:04] 加载向听数离线查表 (DP Lookup)...
+[14:35:05] Worker 2 started.
+[14:35:05] 加载向听数离线查表 (DP Lookup)...
+[14:35:05] Worker 3 started.
+[14:35:05] 加载向听数离线查表 (DP Lookup)...
+[14:35:06] Worker 4 started.
+[14:35:06] 加载向听数离线查表 (DP Lookup)...
+[14:35:06] Worker 5 started.
+[14:35:06] 加载向听数离线查表 (DP Lookup)...
+[14:35:07] Worker 6 started.
+[14:35:07] 加载向听数离线查表 (DP Lookup)...
+[14:35:07] Worker 7 started.
+[14:35:07] 加载向听数离线查表 (DP Lookup)...
+[14:35:08] Worker 8 started.
+[14:35:08] 加载向听数离线查表 (DP Lookup)...
+[14:35:08] Worker 9 started.
+[14:35:08] 加载向听数离线查表 (DP Lookup)...
+[14:35:09] Worker 10 started.
+[14:35:09] 加载向听数离线查表 (DP Lookup)...
+[14:35:09] Worker 11 started.
+[14:35:09] 加载向听数离线查表 (DP Lookup)...
+[14:35:10] Worker 12 started.
+[14:35:10] 加载向听数离线查表 (DP Lookup)...
+[14:35:10] Worker 13 started.
+[14:35:10] 加载向听数离线查表 (DP Lookup)...
+[14:35:11] Worker 14 started.
+[14:35:11] 加载向听数离线查表 (DP Lookup)...
+[14:35:11] Worker 15 started.
+[14:35:11] 🚀 CUDA GPU: Tesla V100-SXM2-32GB
+[14:35:11] Trainer running on: cuda:0
+[14:35:11] 加载向听数离线查表 (DP Lookup)...
+[14:35:12] Worker 16 started.
+[14:35:12] 加载向听数离线查表 (DP Lookup)...
+[14:35:12] Worker 17 started.
+[14:35:12] Trainer: Performing Network Surgery from /home/cnhbs/ruichang_mj/checkpoints/best_policy.pth...
+[14:35:13] [Surgery] Grafting layer: input_conv.0.weight torch.Size([256, 14, 3]) -> torch.Size([256, 16, 3])
+[14:35:12] 加载向听数离线查表 (DP Lookup)...
+[14:35:13] Worker 18 started.
+[14:35:13] ✅ SL 模型手术衔接完成。
+[14:35:13] PPO Conditioned Training (Domain Randomization) Start.
+[14:35:13] ✅ Inference Server: 初始权重接收完毕，开启高频推理循环！
+[14:35:13] 加载向听数离线查表 (DP Lookup)...
+[14:35:13] Worker 19 started.
+[14:35:14] Worker 0 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:35:14] Worker 12 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:35:17] STEPS: 1027 | P_LOSS: 0.0061 | V_LOSS: 2.2547 | ENT: 0.0500 | REWARD: -0.46
+[14:35:18] Worker 15 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:35:19] STEPS: 2051 | P_LOSS: 0.0029 | V_LOSS: 1.9058 | ENT: 0.0499 | REWARD: -0.54
+[14:35:20] Worker 14 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:35:22] STEPS: 3076 | P_LOSS: 0.0106 | V_LOSS: 1.9111 | ENT: 0.0499 | REWARD: -0.14
+[14:35:24] STEPS: 4108 | P_LOSS: 0.0254 | V_LOSS: 1.6289 | ENT: 0.0498 | REWARD: -0.66
+[14:35:27] STEPS: 5136 | P_LOSS: 0.0056 | V_LOSS: 2.0089 | ENT: 0.0498 | REWARD: -0.33
+[14:35:29] STEPS: 6165 | P_LOSS: 0.0021 | V_LOSS: 1.9994 | ENT: 0.0497 | REWARD: 0.42
+[14:35:32] STEPS: 7192 | P_LOSS: 0.0049 | V_LOSS: 1.9487 | ENT: 0.0497 | REWARD: -0.33
+[14:35:34] STEPS: 8218 | P_LOSS: 0.0044 | V_LOSS: 1.8422 | ENT: 0.0496 | REWARD: -0.73
+[14:35:36] STEPS: 9243 | P_LOSS: 0.0040 | V_LOSS: 1.9487 | ENT: 0.0496 | REWARD: -0.10
+[14:35:39] STEPS: 10280 | P_LOSS: 0.0077 | V_LOSS: 1.9957 | ENT: 0.0495 | REWARD: -0.53
+[14:35:41] STEPS: 11305 | P_LOSS: 0.0041 | V_LOSS: 2.1260 | ENT: 0.0495 | REWARD: -0.71
+[14:35:44] STEPS: 12336 | P_LOSS: 0.0050 | V_LOSS: 1.9700 | ENT: 0.0494 | REWARD: -0.82
+[14:35:46] STEPS: 13368 | P_LOSS: 0.0018 | V_LOSS: 1.7732 | ENT: 0.0494 | REWARD: -0.41
+[14:35:48] Worker 1 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:35:49] STEPS: 14398 | P_LOSS: 0.0079 | V_LOSS: 2.1818 | ENT: 0.0494 | REWARD: -0.25
+[14:35:49] Worker 4 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:35:51] STEPS: 15428 | P_LOSS: 0.0044 | V_LOSS: 2.0077 | ENT: 0.0493 | REWARD: -1.09
+[14:35:54] STEPS: 16455 | P_LOSS: 0.0076 | V_LOSS: 1.9723 | ENT: 0.0493 | REWARD: -0.93
+[14:35:56] STEPS: 17481 | P_LOSS: 0.0163 | V_LOSS: 2.0284 | ENT: 0.0492 | REWARD: -0.95
+[14:35:58] STEPS: 18506 | P_LOSS: 0.0074 | V_LOSS: 1.9872 | ENT: 0.0492 | REWARD: -0.96
+[14:36:01] STEPS: 19538 | P_LOSS: 0.0081 | V_LOSS: 2.2392 | ENT: 0.0491 | REWARD: -0.17
+[14:36:03] STEPS: 20564 | P_LOSS: 0.0056 | V_LOSS: 2.0389 | ENT: 0.0491 | REWARD: -0.51
+[14:36:06] STEPS: 21596 | P_LOSS: 0.0201 | V_LOSS: 1.9752 | ENT: 0.0490 | REWARD: -0.25
+[14:36:08] STEPS: 22625 | P_LOSS: 0.0059 | V_LOSS: 2.1136 | ENT: 0.0490 | REWARD: -0.14
+[14:36:08] Worker 9 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:36:11] STEPS: 23656 | P_LOSS: 0.0028 | V_LOSS: 1.8983 | ENT: 0.0489 | REWARD: -1.06
+[14:36:13] STEPS: 24680 | P_LOSS: 0.0110 | V_LOSS: 1.9787 | ENT: 0.0489 | REWARD: -0.73
+[14:36:14] Worker 6 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:36:16] STEPS: 25709 | P_LOSS: 0.0049 | V_LOSS: 2.0045 | ENT: 0.0488 | REWARD: -0.42
+[14:36:18] STEPS: 26737 | P_LOSS: 0.0016 | V_LOSS: 1.7633 | ENT: 0.0488 | REWARD: -0.84
+[14:36:21] STEPS: 27765 | P_LOSS: 0.0014 | V_LOSS: 2.1179 | ENT: 0.0488 | REWARD: -0.02
+[14:36:21] Worker 10 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:36:22] Worker 7 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:36:23] STEPS: 28790 | P_LOSS: 0.0032 | V_LOSS: 1.9002 | ENT: 0.0487 | REWARD: -1.02
+[14:36:26] STEPS: 29820 | P_LOSS: 0.0040 | V_LOSS: 1.6834 | ENT: 0.0487 | REWARD: -0.43
+[14:36:28] STEPS: 30845 | P_LOSS: 0.0040 | V_LOSS: 1.9287 | ENT: 0.0486 | REWARD: -0.47
+[14:36:31] STEPS: 31871 | P_LOSS: 0.0049 | V_LOSS: 2.1014 | ENT: 0.0486 | REWARD: -0.61
+[14:36:33] STEPS: 32896 | P_LOSS: 0.0047 | V_LOSS: 2.0367 | ENT: 0.0485 | REWARD: -0.55
+[14:36:36] STEPS: 33929 | P_LOSS: 0.0141 | V_LOSS: 1.9023 | ENT: 0.0485 | REWARD: -0.87
+[14:36:37] Worker 16 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:36:38] STEPS: 34955 | P_LOSS: 0.0016 | V_LOSS: 2.0780 | ENT: 0.0484 | REWARD: -0.24
+[14:36:39] Worker 19 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:36:41] STEPS: 35982 | P_LOSS: 0.0036 | V_LOSS: 1.9843 | ENT: 0.0484 | REWARD: -0.29
+[14:36:44] STEPS: 37015 | P_LOSS: 0.0051 | V_LOSS: 1.9007 | ENT: 0.0483 | REWARD: -0.77
+[14:36:45] Worker 18 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:36:47] STEPS: 38046 | P_LOSS: 0.0244 | V_LOSS: 1.9024 | ENT: 0.0483 | REWARD: -0.45
+[14:36:50] STEPS: 39074 | P_LOSS: 0.0030 | V_LOSS: 1.7081 | ENT: 0.0482 | REWARD: -1.62
+[14:36:53] STEPS: 40101 | P_LOSS: 0.0123 | V_LOSS: 1.7887 | ENT: 0.0482 | REWARD: -0.53
+[14:36:55] STEPS: 41127 | P_LOSS: 0.0099 | V_LOSS: 2.0591 | ENT: 0.0481 | REWARD: -0.44
+[14:36:58] STEPS: 42161 | P_LOSS: 0.0024 | V_LOSS: 1.9854 | ENT: 0.0481 | REWARD: -0.73
+[14:37:00] Worker 8 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:37:01] STEPS: 43194 | P_LOSS: 0.0020 | V_LOSS: 1.9572 | ENT: 0.0481 | REWARD: -0.25
+[14:37:04] STEPS: 44222 | P_LOSS: 0.0009 | V_LOSS: 1.7892 | ENT: 0.0480 | REWARD: -0.29
+[14:37:04] Worker 17 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:37:08] STEPS: 45249 | P_LOSS: 0.0044 | V_LOSS: 1.8503 | ENT: 0.0480 | REWARD: -0.74
+[14:37:11] STEPS: 46277 | P_LOSS: 0.0041 | V_LOSS: 1.6624 | ENT: 0.0479 | REWARD: -0.26
+[14:37:14] STEPS: 47310 | P_LOSS: 0.0049 | V_LOSS: 1.6797 | ENT: 0.0479 | REWARD: -1.04
+[14:37:18] STEPS: 48340 | P_LOSS: 0.0089 | V_LOSS: 1.4920 | ENT: 0.0478 | REWARD: -0.92
+[14:37:21] STEPS: 49368 | P_LOSS: 0.0067 | V_LOSS: 1.8228 | ENT: 0.0478 | REWARD: -1.35
+[14:37:21] Worker 13 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:37:21] Worker 2 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:37:25] STEPS: 50393 | P_LOSS: 0.0083 | V_LOSS: 2.1054 | ENT: 0.0477 | REWARD: -0.31
+[14:37:30] STEPS: 51419 | P_LOSS: 0.0046 | V_LOSS: 1.7571 | ENT: 0.0477 | REWARD: -1.10
+[14:37:34] STEPS: 52444 | P_LOSS: 0.0041 | V_LOSS: 1.8584 | ENT: 0.0476 | REWARD: -0.67
+[14:37:39] STEPS: 53468 | P_LOSS: 0.0089 | V_LOSS: 2.0882 | ENT: 0.0476 | REWARD: -0.07
+[14:37:43] STEPS: 54498 | P_LOSS: 0.0058 | V_LOSS: 1.9905 | ENT: 0.0475 | REWARD: 0.12
+[14:37:47] STEPS: 55525 | P_LOSS: 0.0073 | V_LOSS: 1.8104 | ENT: 0.0475 | REWARD: -0.60
+[14:37:52] STEPS: 56554 | P_LOSS: 0.0028 | V_LOSS: 1.6968 | ENT: 0.0475 | REWARD: -1.10
+[14:37:53] Worker 5 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:37:57] STEPS: 57578 | P_LOSS: 0.0060 | V_LOSS: 1.7808 | ENT: 0.0474 | REWARD: 0.09
+[14:38:03] STEPS: 58604 | P_LOSS: 0.0037 | V_LOSS: 1.8383 | ENT: 0.0474 | REWARD: -0.29
+[14:38:05] Worker 11 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:38:09] STEPS: 59628 | P_LOSS: 0.0104 | V_LOSS: 2.1455 | ENT: 0.0473 | REWARD: -0.29
+[14:38:17] STEPS: 60653 | P_LOSS: 0.0050 | V_LOSS: 1.7198 | ENT: 0.0473 | REWARD: -0.62
+[14:38:26] STEPS: 61679 | P_LOSS: 0.0055 | V_LOSS: 1.7467 | ENT: 0.0472 | REWARD: -0.20
+[14:38:34] STEPS: 62707 | P_LOSS: 0.0080 | V_LOSS: 2.0713 | ENT: 0.0472 | REWARD: -0.56
+[14:38:42] STEPS: 63732 | P_LOSS: 0.0070 | V_LOSS: 1.9842 | ENT: 0.0471 | REWARD: -0.63
+[14:38:48] Worker 3 CRASHED: tuple index out of range
+Traceback (most recent call last):
+  File "/home/cnhbs/ruichang_mj/train_ppo.py", line 64, in rollout_worker
+    mask = state[13]
+           ~~~~~^^^^
+IndexError: tuple index out of range
+[14:38:50] STEPS: 64763 | P_LOSS: 0.0148 | V_LOSS: 2.1032 | ENT: 0.0471 | REWARD: -0.62

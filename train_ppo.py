@@ -32,15 +32,15 @@ def get_device():
     get_device._cached = dev
     return dev
 
-ACTOR_LR = 1e-5            # 核心：降低 Actor 学习率以进行精细手术后的微调
+ACTOR_LR = 1.5e-5          # Self-Play 阶段：赋予打破旧习的动力
 CRITIC_LR = 3e-4           
 GAMMA = 0.99
 GAE_LAMBDA = 0.95
 EPS_CLIP = 0.2
 K_EPOCHS = 4
-ENT_START = 0.05           # 初始探索系数：适应新规则层
-ENT_END = 0.005            # 最终收敛系数
-ENT_DECAY_STEPS = 1000000 
+ENT_START = 0.02           # 给予 2% 随机性探索"骗牌"
+ENT_END = 0.002            # 最终收敛更深
+ENT_DECAY_STEPS = 1000000  # 100万步内慢慢退火
 TRAIN_STEPS = 1500000      
 TRAIN_BATCH_SIZE = 1024    # 缩短更新周期，提升反馈频率
 NUM_WORKERS = 20           # 留出 4 个超线程给系统和推理 Server 确保不占满 CPU
@@ -200,14 +200,20 @@ class PPOTrainer:
         log_message("✅ SL 模型手术衔接完成。")
 
     def load_checkpoint(self):
-        # 此时我们主动废弃旧的 ppo 存档，强制从手术后的 SL 开始
+        # 【Self-Play 阶段】：直接加载上一轮 PPO Elite 成果，无需手术
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        sl_path = os.path.join(script_dir, "checkpoints/best_policy.pth")
+        ckpt_path = os.path.join(script_dir, "checkpoints/ppo_elite_v1.pth")
         
-        if os.path.exists(sl_path):
-            self.load_sl_baseline_with_surgery(sl_path)
+        if os.path.exists(ckpt_path):
+            ckpt = torch.load(ckpt_path, map_location="cpu", weights_only=False)
+            if 'model_state_dict' in ckpt:
+                self.model.load_state_dict(ckpt['model_state_dict'])
+            else:
+                self.model.load_state_dict(ckpt)
+            self._sync_weights()
+            log_message("✅ 成功加载 PPO Elite 模型，开启 Self-Play 进阶训练！")
         else:
-            log_message("Trainer: WARNING - No SL baseline found, starting from random weights.")
+            log_message("Trainer: WARNING - No checkpoint found, starting from random weights.")
 
     def update(self, storage, total_steps):
         # 2. 动态熵衰减 (Entropy Decay)

@@ -1,17 +1,4 @@
-# 模型权重与大文件
-checkpoints/
-*.pth
-*.pth.*
 
-# 数据集与缓存（大文件）
-*.npz
-*.pkl
-*.tar
-
-# 训练日志与输出
-training.log.*.bak
-nohup.out
-tensorboard.out
 
 # TensorBoard runs
 runs/

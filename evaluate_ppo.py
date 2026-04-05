@@ -40,7 +40,13 @@ def evaluate_ppo(num_games=100, checkpoint_name="ppo_elite_v1.pth", greedy=True)
         "losses": 0,
         "total_reward": 0,
         "win_patterns": Counter(),
-        "ep_lengths": []
+        "ep_lengths": [],
+        "by_base_score": {
+            0: {"wins": 0, "draws": 0, "losses": 0, "rewards": []},
+            5: {"wins": 0, "draws": 0, "losses": 0, "rewards": []},
+            10: {"wins": 0, "draws": 0, "losses": 0, "rewards": []},
+            15: {"wins": 0, "draws": 0, "losses": 0, "rewards": []}
+        }
     }
 
     start_time = time.time()
@@ -51,6 +57,7 @@ def evaluate_ppo(num_games=100, checkpoint_name="ppo_elite_v1.pth", greedy=True)
         done = False
         ep_reward = 0
         turns = 0
+        base_score = env.current_base_score  # 记录这局的base_score
         
         while not done:
             turns += 1
@@ -73,6 +80,7 @@ def evaluate_ppo(num_games=100, checkpoint_name="ppo_elite_v1.pth", greedy=True)
         # 结果记录
         stats["total_reward"] += ep_reward
         stats["ep_lengths"].append(turns)
+        stats["by_base_score"][base_score]["rewards"].append(ep_reward)
         
         # 判定赢家 (Player 0 是 AI)
         # 注意: env._finalize_game 返回的 reward 机制
@@ -87,6 +95,7 @@ def evaluate_ppo(num_games=100, checkpoint_name="ppo_elite_v1.pth", greedy=True)
         
         if winner == 0:
             stats["wins"] += 1
+            stats["by_base_score"][base_score]["wins"] += 1
             # 记录胡牌番种
             p = env.players[0]
             # 为了获取番种，我们模拟一下最后一次 score 计算
@@ -96,8 +105,10 @@ def evaluate_ppo(num_games=100, checkpoint_name="ppo_elite_v1.pth", greedy=True)
                 stats["win_patterns"][name] += 1
         elif winner == -1:
             stats["draws"] += 1
+            stats["by_base_score"][base_score]["draws"] += 1
         else:
             stats["losses"] += 1
+            stats["by_base_score"][base_score]["losses"] += 1
             
         if (g + 1) % 20 == 0:
             print(f"  Progress: {g+1}/{num_games} | Current WinRate: {stats['wins']/(g+1)*100:.1f}%")
@@ -124,6 +135,23 @@ def evaluate_ppo(num_games=100, checkpoint_name="ppo_elite_v1.pth", greedy=True)
     print(f"流局率 (Draw Rate): {draw_rate:.1f}%")
     print(f"败率 (Loss Rate): {loss_rate:.1f}%")
     print("-" * 30)
+    
+    # 【新增】底分规则分化分析
+    print("\n📊 AI 在不同 Base Score 下的表现分化：")
+    print("-" * 50)
+    for bs in [0, 5, 10, 15]:
+        data = stats["by_base_score"][bs]
+        total = data["wins"] + data["draws"] + data["losses"]
+        if total > 0:
+            wr = data["wins"] / total * 100
+            dr = data["draws"] / total * 100
+            lr = data["losses"] / total * 100
+            avg_r = np.mean(data["rewards"]) if data["rewards"] else 0
+            print(f"Base Score = {bs:2d}  | 胜率: {wr:5.1f}% | 流局: {dr:5.1f}% | 败率: {lr:5.1f}% | 平均Reward: {avg_r:7.3f}")
+    print("-" * 50)
+    print("💡 观察：是否出现了在 Base=0 时左右安全、Base=15 时激进进攻的打法分化？")
+    
+    print("\n" + "-" * 30)
     print("🔥 胡牌番种统计 (前5名):")
     for name, count in stats["win_patterns"].most_common(5):
         print(f"  - {name}: {count} 次 ({count/stats['wins']*100:.1f}% of wins)")
